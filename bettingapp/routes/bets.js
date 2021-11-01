@@ -43,15 +43,15 @@ router.put('/', async function(req, res) {
 
 /* DELETE bet with params {id}. */
 router.delete('/:id', async function(req, res) {
-  const { id } = req.params.id
+  const id = req.params.id
   db.Bet.destroy({
-    where: { id:id }
+    where: { id: id }
   })
     .then( () => {
       res.status(200).send(`Deleted bet with id: ${id}`);
     })
     .catch( err => {
-        res.status(500).send(JSON.stringify(err));
+      res.status(500).send(JSON.stringify(err));
     });
 
 });

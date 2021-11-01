@@ -35,7 +35,6 @@ test('get bet', async () => {
     }]}
   );
   expect(bet.amount).toEqual(300);
-  console.log(bet)
   expect(bet.Team.name).toEqual('Pies');
 });
 
