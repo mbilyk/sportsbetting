@@ -4,7 +4,6 @@ router.use(express.json());
 
 const db = require('../db/database');
 
-
 /* GET all bets. */
 router.get('/', async function(req, res) {
   db.Bet.findAll({
@@ -53,7 +52,6 @@ router.delete('/:id', async function(req, res) {
     .catch( err => {
       res.status(500).send(JSON.stringify(err));
     });
-
 });
 
 module.exports = router;
