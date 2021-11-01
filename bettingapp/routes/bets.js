@@ -33,10 +33,20 @@ router.put('/', async function(req, res) {
     amount: amount
     })
     .then( bet => {
-        res.status(201).send(JSON.stringify(bet));
+      res.status(201).json({
+        status: 'OK',
+        statusMessage: 'success',
+        respObj: {
+          bet: bet
+        }
+      });
     })
     .catch( err => {
-        res.status(500).send(JSON.stringify(err));
+        res.status(500).json({
+          status: 'ERROR',
+          statusMessage: `${err.detail}`,
+          respObj: {}
+        });
   });
 });
 
@@ -50,7 +60,11 @@ router.delete('/:id', async function(req, res) {
       res.status(200).send(`Deleted bet with id: ${id}`);
     })
     .catch( err => {
-      res.status(500).send(JSON.stringify(err));
+      res.status(500).json({
+        status: 'ERROR',
+        statusMessage: `${err.detail}`,
+        respObj: {}
+      });
     });
 });
 
