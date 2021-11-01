@@ -16,7 +16,11 @@ router.get('/', async function(req, res) {
       }
     }))
     .catch(err => {
-      res.status(500).send(JSON.stringify(err));
+      res.status(500).json({
+        status: 'ERROR',
+        statusMessage: `${err.detail}`,
+        respObj: {}
+      });
     });
 });
 
@@ -27,10 +31,20 @@ router.put('/', function(req, res) {
       name: name
       })
       .then( team => {
-          res.status(201).send(JSON.stringify(team));
+        res.status(201).json({
+          status: 'OK',
+          statusMessage: 'success',
+          respObj: {
+            team: team
+          }
+        });
       })
       .catch( err => {
-          res.status(500).send(JSON.stringify(err));
+          res.status(500).json({
+            status: 'ERROR',
+            statusMessage: `${err.detail}`,
+            respObj: {}
+          });
       });
 });
 

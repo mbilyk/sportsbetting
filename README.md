@@ -69,10 +69,16 @@ curl -X PUT 'http://localhost:3000/teams/' -H 'Content-Type: application/json' -
 #### Example Response
 ```
 {
-  "id": 6,
-  "name": "Dallas Steaks",
-  "updatedAt": "2021-11-01T03:11:27.368Z",
-  "createdAt": "2021-11-01T03:11:27.368Z"
+  "status": "OK",
+  "statusMessage": "success",
+  "respObj": {
+    "team": {
+      "id": 1,
+      "name": "Dallas Steaks",
+      "updatedAt": "2021-11-01T06:12:32.680Z",
+      "createdAt": "2021-11-01T06:12:32.680Z"
+    }
+  }
 }
 ```
 
@@ -90,11 +96,17 @@ curl -X PUT 'localhost:3000/bets/' -H 'Content-Type: application/json' -d '{"tea
 #### Example Response
 ```
 {
-  "id": 2,
-  "TeamId": 1,
-  "amount": 4000,
-  "updatedAt": "2021-11-01T03:16:04.502Z",
-  "createdAt": "2021-11-01T03:16:04.502Z"
+  "status": "OK",
+  "statusMessage": "success",
+  "respObj": {
+    "bet": {
+      "id": 2,
+      "TeamId": 2,
+      "amount": 2,
+      "updatedAt": "2021-11-01T05:52:23.650Z",
+      "createdAt": "2021-11-01T05:52:23.650Z"
+    }
+  }
 }
 ```
 

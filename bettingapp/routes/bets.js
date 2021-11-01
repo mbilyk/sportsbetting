@@ -21,7 +21,11 @@ router.get('/', async function(req, res) {
       }
     }))
     .catch(err => {
-      res.status(500).send(JSON.stringify(err));
+      res.status(500).json({
+          status: 'ERROR',
+          statusMessage: `${err.detail}`,
+          respObj: {}
+        });
     });
 });
 
